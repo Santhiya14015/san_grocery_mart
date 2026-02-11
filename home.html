@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+}
+header {
+    background-color: #4aa96d;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+nav a:hover
+{
+  color: black;
+}
+.cart a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 400px; 
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+        .banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .banner-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-25%, -50%);
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px; 
+        }
+        .banner h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .banner p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .banner button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #6fc071;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .banner button:hover {
+            background-color: #53b754; 
+        }
+
+.categories {
+    padding: 40px 20px;
+    background-color: #a7e9ae;
+    text-align: center;
+}
+
+.categories h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category {
+    width: 150px;
+    text-align: center;
+}
+
+.category img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.featured-products {
+    padding: 40px 20px;
+    background-color: #fcfafa;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 200px;
+    text-align: center;
+    background-color: #a7e9ae;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.product img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.add-to-cart {
+    background-color: #6cba6f;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.add-to-cart:hover {
+    background-color: #7cda81;
+}
+footer {
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 calc(20% - 20px);
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fbfbfb;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #fefeff;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #0056b3;
+}
+
+.footer-section address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.social-icons a:hover {
+  color: #0056b3;
+}
+.ab{
+  position: absolute;
+  top: 10px;
+}
+.san{
+    text-align: center;
+    font-size: 90px;
+}
+
+.card-container {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 30vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            gap: 40px;
+        }
+
+        .card {
+            position: relative;
+            width: 450px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+    .product-image {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .product-img-1 {
+        width: 100%;
+        height: auto;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-img-2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .product-image:hover .product-img-1 {
+        opacity: 0;
+    }
+
+    .product-image:hover .product-img-2 {
+        opacity: 1;
+    }
+    .abcd:hover{
+      opacity: 0.5;
+    }
+
+
+
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.featured-products {
+    margin-top: 20px;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-image {
+    position: relative;
+    width: 170px;
+    height: 170px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover effect: when hovering over the product, the second image shows */
+.product:hover .product-img-2 {
+    opacity: 1;
+}
+
+.product-img-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+p {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.product {
+    position: relative;
+    width: 170px;
+    text-align: center;
+    margin-bottom: 20px;
+    height: 280px;
+    width: 200px;
+}
+.product:hover{
+  height: 310px; 
+}
+.add-to-cart {
+    display: none;
+    position: absolute;
+    bottom: 10px;  
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 50px;
+    width: 100px;
+}
+
+/* Show Add to Cart button when hovering over the product */
+.product:hover .add-to-cart {
+    display: block;
+    
+}
+.stars {
+      display: inline-block;
+      font-size: 24px;
+      color: #ddd;
+      border: black;
+    }
+.stars .active {
+      color: #ff9800;
+    }
+.wishlist-icon {
+  position: absolute;
+  right: 9px;
+  width: 30px; /* Adjust as per the size of the icon */
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <header><nav class="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" alt="" style="height: 70px; width: 70px; border-radius: 80px;"></a>
+        </div>
+        </nav>
+              <h1 style="position: relative; right: 100px;top: 5px; font-size: x-large; font-family: Arial, Helvetica, sans-serif;">San GroceryMart</h1>
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./category.html">Categories</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px; border-radius: 100px;">
+          </form>
+        <div class="cart">
+            <a href="./cart.html" style="position: relative; right: 15px;"><img src="https://img.icons8.com/?size=100&id=CE7rP-35_XQR&format=png&color=000000" style="height: 30px;" alt="">  Cart(<span id="cart-count">0</span>)</a>
+            <a href="./wishlist.html"> ❤️Wishlist</a>
+        </div>
+    </header>
+
+    <div class="banner">
+        <img src="./images/background-image-featuring-paper-bag-filled-with-healthy-vegan-vegetarian-food-including_176841-12510.jpg" alt="Banner Image">
+        <div class="banner-content">
+            <h1 style="font-size: 50px;">Welcome to San Grocery Mart</h1>
+            <p style="font-size: 25px;"> Find the best deals on fresh groceries, right here!</p>
+            <button style="background-color: rgba(190, 225, 118, 0.985); border-radius: 19px;" class="abcd"><a href="./category.html" style="color: #000000;">Shop Now</a></button>
+        </div>
+    </div>
+    <h2 style="position: relative; left: 640px; top: 30px;">Offered Products</h2><br>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          
+    <section class="featured-products">
+      <div class="product-list">
+        <div class="product">
+          <a href="./apple1.html">
+            
+              <div class="product-image">
+                        <img src="./images/apples.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                  <img src="./images/apple.jpg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                     <img style="height: 40px; width: 40px; " src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAgVBMVEX///8IO0QANkAAKDMAN0AALDcAJjIAND4AMTvh5ufj6OkALjno7O2DlpoAKjWAk5cTQ0w7XGPt8fL2+PkAPUYYRk6vvL6aqaxCYWgAHy1ien+ntbgwVFxQbHLV3N2grrDO1NV5jJBogIQnTFS5xceOnqLDzM5Yc3l5jZFKaW8pUFiEMEQbAAAE/klEQVR4nO3a13IaMRQG4KDVVsHC0ttSF9vk/R8wq0IMoQTQsS0x/3fhcSKPRge1I4lfvwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAfvXTYWpfjoiin7eWqeVbeXI0+pmVRjMt1a5j2fqCFVnrVZhvmScIY5yxORNQfj9Kj8nQ07gciiXldXJfn+XZT+RRk2u7nMW8c41yIojLl1VgI9k95nPN1erNWd6SbSXLafINFAxljNYguFvNksvEixl2SfLZZhGEoxN/+5NH+bR/8/VcsVPnn55GInfNjNd2GpsNElO/bo9lwttxNB5M8NlGFTP8S55PBdLccDmej9l5Ewvx3OFj8dAi3zQLd0jic746b2h2+c/E5Nrlg71X3qHwxmoex6ebZdzf6Ea1Ixyemq7Oy7m5gurfuqFH3rHw1FTrGqPUNLX3SOtBNLC+PtN4ul93IwiuTbVHqDyjYfGUjbXyoAFkwvPoX6TyIg3l2tXyoB3m+/orm2dupHkiK6wHUluXyVnFWqIU42NE2jUalelCUdst9rxRqoFf//9Pv1lWbniitK3qXIXJ2vhT9tHc5vJIxQU17VdM7QU2k1BhlW4pPvruVoyF3bZzOZavCFUldK7lv8jlJXWSqXE7CD6LaPuRUzK9vOj+hYDKRpqqtJ1ctVlBVR2Elt8Lw5k73kKUcp9GKrD5763r54326g0+vX3di4lJmIz/ypE1YYVvuGDlhhZb0IKU82C2EW8N0JMhX93m9dIkRaZU29nVzYtojz6Y+K7I9aZU2ZBIS0m5fw3pq8y1plRa6DU6WzxzIvIb3z++Rf8ZCpco3j4UPa6o6XbmVUgtfQnsN2JMRClciXMmklCxlM+StVLAirvRZXxIhcynChUxpYuLL6pjuNGZPrzS01w5dp+Zhxulbo1YvTrs+WxjI/ZD21qGS++GAtEob8vxLerTQhwvuzhm4Rd+csfzQ3HnAeJMXbTHl62Yql9L8jbBGO71Jg/isM5Ib0MSh19KSER8QC3kVZX9/TqeKaN8aqOuz1+tw0k6U98u849AgNfMmoHqfnql7H7de2Lry+o/qwajLZWV9x16f1B1uTLM2lCrrducaypCXY42Q4hJ3LT8s9pugJloz9QQc2OdubVVR5Na7jPJbfVcksg2xrb4NELvXhfX6YEK0SyZbgQ7QsWVGywbqS0+BTYg6QNZx5mB4qhkzy17U36lisSv3pGeaHWY1F3WA7lwEX5AOmMVA1UOUd5z+kmnWZ09vGiZA7nSA9UDl/MmBauYgc3iIalnnueXGBOjqKnos7TwzFw/bhONDVMvix1dUs4oSP2B9mWb/0RBNgA3n5+BB9uCm4cU2ceqwadwXogmw71GAnwncPQPVrKKJN0NUa969aXi0TZxK7zxpeDgHD7LGPQmcCZB514NSs/H/BM5sE+6napeZTePGXPR2Dh78L4EzqZpf28Sp25uGZ6naZbcSOA9O9Pe4nsB5vE2cunbqNwE2vA/w2lz0NFW7LLuwonq/TZxKO/8mcF6d6O+R8dOB6nWqdtnppmG2Cf4Sc/DgOIEzAb7OENU+EzgvT/T3aOq5KAqhU7WXGqKaOfXrH76napeZZ5tXnIMHJoGru/FFAzw823h7or9H1kl48iqp2mXZtD996QBrTn0dDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4Gv8AdV0NInD8LtRAAAAAElFTkSuQmCC" alt="Wishlist" class="wishlist-icon" onclick="addToWishlist({ id: 1, name: 'Apples', price: 80, image: './images/apples.jpeg' })">
+              </div>
+          </a><br>
+          <p style="position: relative; bottom: 20px;">Apples-1KG-₹200</p>
+          <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+  <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+          <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 1, name: 'Apples', price: 80, image: './images/apples.jpeg' })">Add to Cart</button>
+      </div>
+          <div class="product"> <a href="">
+            <div class="product-image">
+                <img src="./images/bro.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                <img src="./images/brocoli1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+            </div>
+        </a><br>
+              <p  style="position: relative; bottom: 20px;">Brocoli -500G -₹100 </p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+              <button id="ab" class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 2, name: 'Broccoli', price: 100 , image:'./images/bro.jpeg'})">Add to Cart</button>
+          </div>
+          <div class="product">
+            <a href="">
+              <div class="product-image">
+                  <img src="./images/cho.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                  <img src="./images/choc1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+              </div>
+          </a><br>
+              <p  style="position: relative; bottom: 20px;">Chocolate-200g-₹100 </p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+    
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 3, name: 'choclate', price: 100, image: './images/cho.jpeg'})">Add to Cart</button>
+          </div>
+          <div class="product">
+            <a href="">
+              <div class="product-image">
+                  <img src="./images/chips.jpg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                  <img src="./images/lays.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+              </div>
+          </a><br>
+              <p  style="position: relative; bottom: 20px;">  Chips-1pack-₹50</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+    
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 4, name: 'Chips', price: 50, image: './images/chips.jpg'})">Add to Cart</button>
+          </div>
+          <div class="product">
+            <a href="">
+              <div class="product-image">
+                  <img src="./images/milks.jpg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                  <img src="./images/milk1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+              </div>
+          </a><br>
+              <p  style="position: relative; bottom: 20px;">Whole Milk-1LT-₹30 </p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 5, name: 'Milk', price: 30 , image:'./images/milks.jpg'})">Add to Cart</button>
+          </div>
+      </div>
+  </section>
+        </div>
+        <div class="carousel-item">
+          
+    <section class="featured-products">
+      <div class="product-list">
+          <div class="product">
+             <a href="./apple.html"> <img src="./images/rice.jpeg" alt="Apples" style="height: 160px; width: 170px;"></a><br><br>
+              <p  style="position: relative; bottom: 20px;">Rice-1KG-₹280</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 6, name: 'Rice', price: 280 , image:'./images/rice.jpeg'})">Add to Cart</button>
+            </div>
+
+          <div class="product">
+              <img src="./images/oil.jpeg" alt="Broccoli"  style="height: 160px; width: 170px;"><br><br>
+              <p  style="position: relative; bottom: 20px;">Oil-1Lt-₹100</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 7, name: 'Oil', price: 100 , image:'./images/oil.jpeg'})">Add to Cart</button>
+            </div>
+          <div class="product">
+              <img src="./images/handwash.jpeg" alt="Milk"  style="height: 160px; width: 170px;"><br><br>
+              <p  style="position: relative; bottom: 20px;">Handwash-1Lt-₹200</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+    
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 8, name: 'Handwash', price: 200 , image:'./images/handwash.jpeg'})">Add to Cart</button>
+            </div>
+          <div class="product">
+              <img src="./images/soap.jpeg" alt="Chips"  style="height: 160px; width: 170px;"><br><br>
+              <p  style="position: relative; bottom: 20px;">  Soap-1pack-₹50</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+    
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 9, name: 'Soap', price: 80 , image:'./images/soap.jpeg'})">Add to Cart</button>
+            </div>
+          <div class="product">
+              <img src="./images/millets.jpeg" alt="Milk"  style="height: 160px; width: 170px;"><br><br>
+              <p  style="position: relative; bottom: 20px;">Millets-1KG-₹90</p>
+              <button style="border-radius: 30px; background-color: green; color: white; border: none; position: relative; bottom: 35px; right: 50px; height: 27px; width: 55px;">4.3 <span class="active">&#9733;</span></button>
+
+              <p style="color: rgb(125, 117, 117); position: relative; bottom: 70px; left: 30px;"><u>4 reviews</u></p>
+                      
+              <button class="add-to-cart" style="height: 40px; width: 120px;" onclick="addToCart({ id: 10, name: 'Millets', price: 90 , image:'./images/millets.jpeg'})">Add to Cart</button>
+            </div>
+      </div>
+  </section>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    
+<h1 class="san"><b>TOP 50% OFF</b></h1>
+
+
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="./images/pop.jpg" class="d-block w-100" alt="..." height="500px" width="200px">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="./images/aa.jpeg" class="d-block w-100" alt="..." height="500px" width="200px">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/grpes.jpeg" class="d-block w-100" alt="..." height="500px" width="200px">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/juice.jpg" class="d-block w-100" alt="..." height="500px" width="200px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div><br>
+      <h1 style="text-align: center;">Weekend Offers</h1>
+      <div class="card-container">
+        <div class="card">
+            <img src="https://klbtheme.com/grogin/wp-content/plugins/grogin-core/elementor/images/banner-01.jpg" alt="Image 1">
+            <div class="card-text">
+                <p style="color: black; position: relative ; right: 100px; justify-content: center;">Exclusive Offer</p>
+                <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+                <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;">Shop Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-02.jpg" alt="Image 2">
+            <div class="card-text">
+                <p style="color: black; position: relative ; right: 100px; justify-content: center;">Best Deals</p>
+                <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+                <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;"><a href="./week.html" style="color: white;">Shop Now</a></button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-03.jpg" alt="Image 3">
+            <div class="card-text">
+                <p style="color: black; position: relative ; right: 100px; justify-content: center;">Hot Sale</p>
+                <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+                <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;">Shop Now</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1 style="font-size: 35px; text-align: center;">New Arrivals <p style="font-size: 25px;"> Some of the new products arriving this weeks</p></h1>
+    <div class="card-container">
+      <div class="card">
+          <img src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-25.jpg" alt="Image 1">
+          <div class="card-text">
+              <p style="color: black; position: relative ; right: 100px; justify-content: center;">We provide best quality products</p>
+              <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+              <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;">Shop Now</button>
+          </div>
+      </div>
+
+      <div class="card">
+          <img src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-26.jpg" alt="Image 2">
+          <div class="card-text">
+              <p style="color: black; position: relative ; right: 100px; justify-content: center;">We make your shopping quickly</p>
+              <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+              <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;">Shop Now</button>
+          </div>
+      </div>
+
+      <div class="card">
+          <img src="https://klbtheme.com/grogin/wp-content/uploads/2023/11/banner-27.jpg" alt="Image 3">
+          <div class="card-text">
+              <p style="color: black; position: relative ; right: 100px; justify-content: center;">The best supermarket ever</p>
+              <p style="font-size: 13px; color: red;  position: relative ; right: 100px;">only this week</p>
+              <button class="btn" style="background-color: #6cba6f; position: relative; right: 100px;">Shop Now</button>
+          </div>
+      </div>
+  </div>
+      <br>
+
+
+    <section class="categories">
+        <h2>Shop by Categories</h2>
+        <div class="category-list">
+            <div class="category" >
+                <a href="./fruits.html">
+                  <div class="product-image">
+                <img src="./images/fruits.jpg" alt="Fruits" style="height: 150px; width: 180px;">
+                <img src="https://th.bing.com/th/id/OIP.VrDsjqjQDjuXyHCBt_OTuwHaEo?w=290&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;">
+              </a>
+                <p style="position: relative; left: 10px;">Fruits</p>
+            </div>
+              </div>
+
+
+            <div class="category" >
+                <a href="./spices.html">
+                  <div class="product-image">
+                  <img src="./images/spices.jpg" alt="Spices" style="height: 150px; width: 180px;">
+                  <img src="https://th.bing.com/th?id=OIP.pNtUtvsr0YUyTXou2QuJbQHaE7&w=306&h=204&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;"></a>
+                <p style="position: relative; left: 10px;">Spices</p>
+            </div>
+          </div>
+            <div class="category" >
+              <div class="product-image">
+                <img src="./images/attas.jpg" alt="Atta" style="height: 150px; width: 180px;">
+                <img src="https://th.bing.com/th/id/OIP.xM2Im7Gs8-nvWJ6ZS27D1gHaE8?w=258&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;">
+                <p style="position: relative; left: 10px;">Atta</p>
+            </div >    </div>
+            <div class="category">
+              <div class="product-image">
+                <img src="./images/vegetables.jpg" alt="Vegetables" style="height: 150px; width: 180px;">
+                <img src="https://th.bing.com/th/id/OIP.YB3PLk9SrtoGQmwv88N8mAHaGB?w=210&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;">
+                <p style="position: relative; left: 10px;">Vegetables</p>
+            </div>    </div>
+            <div class="category">
+              <div class="product-image">
+                <img src="./images/dairy.jpg" alt="Dairy" style="height: 150px; width: 180px;">
+                <img src="data:image/jpeg;base64,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" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;">
+                <p style="position: relative; left: 10px;">Dairy Products</p>
+            </div>    </div>
+            <div class="category">
+              <div class="product-image">
+                <img src="./images/snack.jpg" alt="Snacks" style="height: 150px; width: 180px;">
+                <img src="https://th.bing.com/th/id/OIP.njBwzoqsHYyz4MJ5N-r6TgHaFj?w=241&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hover Apples" class="product-img-2"style="height: 150px; width: 180px;">
+                <p style="position: relative; left: 10px;">Snacks & Beverages</p>
+            </div>    </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>ABOUT</h3>
+            <ul>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Our Blog</a></li>
+              <li><a href="#">Press Releases</a></li>
+              <li><a href="#">Corporate Information</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>GROUP COMPANIES</h3>
+            <ul>
+              <li><a href="#">FreshKart</a></li>
+              <li><a href="#">QuickBite</a></li>
+              <li><a href="#">ShopEase</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>HELP</h3>
+            <ul>
+              <li><a href="#">Payments</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Cancellation & Returns</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">Grievance Redressal</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>CONSUMER POLICY</h3>
+            <ul>
+              <li><a href="#">Cancellation & Returns</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>REGISTERED OFFICE</h3>
+            <address>
+              San Grocery Mart<br>
+              6/14E,Meeenakshi Nagar,<br>
+              Nagercoil, TamilNadu, 629302, India<br>
+              <strong>Customer Support:</strong> 04652-7789363285<br>
+              <strong>Email:</strong> <a href="mailto:support@sangrocery.com">support@sangrocery.com</a>
+            </address>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 San Grocery Mart. All rights reserved.</p>
+          <div class="social-icons">
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+          </div>
+        </div>
+      </footer>
+    <script>
+
+      // Array to store wishlist items
+let wishlist = [];
+
+// Function to add a product to the wishlist
+function addToWishlist(product) {
+  // Check if the product is already in the wishlist
+  if (!wishlist.find(item => item.id === product.id)) {
+    wishlist.push(product);
+    alert(`${product.name} has been added to your wishlist!`);
+  } else {
+    alert(`${product.name} is already in your wishlist!`);
+  }
+
+  console.log("Wishlist:", wishlist);
+}
+
+      updateCartCount();
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${product.name} has been added to your cart.`);
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+
+function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      const existingProductIndex = cart.findIndex(item => item.id === product.id);
+  
+      if (existingProductIndex > -1) {
+          const confirmation = confirm('This item is already in the cart. Do you want to remove it?');
+          if (confirmation) {
+              cart.splice(existingProductIndex, 1);
+              localStorage.setItem('cart', JSON.stringify(cart));
+              alert(`${product.name} removed from your cart.`);
+              updateCartCount();
+          }
+      } else {
+          cart.push(product);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert(`${product.name} has been added to your cart.`);
+          updateCartCount();
+      }
+  }
+
+  function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+  }
+  window.onload = updateCartCount;
+      </script>
+</body>
+</html>

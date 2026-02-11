@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .featured-products {
+            margin-top: 20px;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .product {
+            position: relative;
+            width: 170px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-image {
+            position: relative;
+            width: 170px;
+            height: 170px;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease;
+        }
+        .product:hover .product-img-2 {
+            opacity: 1;
+        }
+        .product-img-2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .add-to-cart {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product:hover .add-to-cart {
+            display: block;
+        }
+        p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <section class="featured-products">
+        <div class="product-list">
+            <div class="product">
+                <a href="./apple1.html">
+                    <div class="product-image">
+                        <img src="./images/apples.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                        <img src="./images/apple.jpg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                    </div>
+                </a><br>
+                <p>Apples-1KG-₹200</p>
+                <button class="add-to-cart" onclick="addToCart({ id: 1, name: 'Apples', price: 80, image: './images/apples.jpeg' })">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <a href="">
+                    <div class="product-image">
+                        <img src="./images/bro.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                        <img src="./images/brocoli1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                    </div>
+                </a><br>
+                <p>Broccoli -500G -₹100 </p>
+                <button class="add-to-cart" onclick="addToCart({ id: 2, name: 'Broccoli', price: 100 , image:'./images/bro.jpeg'})">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <a href="">
+                    <div class="product-image">
+                        <img src="./images/cho.jpeg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                        <img src="./images/choc1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                    </div>
+                </a><br>
+                <p>Chocolate-200g-₹100 </p>
+                <button class="add-to-cart" onclick="addToCart({ id: 3, name: 'Chocolate', price: 100, image: './images/cho.jpeg'})">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <a href="">
+                    <div class="product-image">
+                        <img src="./images/chips.jpg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                        <img src="./images/lays.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                    </div>
+                </a><br>
+                <p>Chips-1pack-₹50</p>
+                <button class="add-to-cart" onclick="addToCart({ id: 4, name: 'Chips', price: 50, image: './images/chips.jpg'})">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <a href="">
+                    <div class="product-image">
+                        <img src="./images/milks.jpg" alt="Apples" class="product-img-1" style="height: 170px; width: 170px;">
+                        <img src="./images/milk1.jpeg" alt="Hover Apples" class="product-img-2" style="height: 170px; width: 170px;">
+                    </div>
+                </a><br>
+                <p>Whole Milk-1LT-₹30 </p>
+                <button class="add-to-cart" onclick="addToCart({ id: 5, name: 'Milk', price: 30 , image:'./images/milks.jpg'})">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-item">
+        <section class="featured-products">
+            <div class="product-list">
+                <div class="product">
+                    <a href="./apple.html">
+                        <img src="./images/rice.jpeg" alt="Apples" style="height: 160px; width: 170px;">
+                    </a><br><br>
+                    <p>Rice-1KG-₹280</p>
+                    <button class="add-to-cart" onclick="addToCart({ id: 6, name: 'Rice', price: 280 , image:'./images/rice.jpeg'})">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <img src="./images/oil.jpeg" alt="Broccoli" style="height: 160px; width: 170px;"><br><br>
+                    <p>Oil-1Lt-₹100</p>
+                    <button class="add-to-cart" onclick="addToCart({ id: 7, name: 'Oil', price: 100 , image:'./images/oil.jpeg'})">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <img src="./images/handwash.jpeg" alt="Milk" style="height: 160px; width: 170px;"><br><br>
+                    <p>Handwash-1Lt-₹200</p>
+                    <button class="add-to-cart" onclick="addToCart({ id: 8, name: 'Handwash', price: 200 , image:'./images/handwash.jpeg'})">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <img src="./images/soap.jpeg" alt="Chips" style="height: 160px; width: 170px;"><br><br>
+                    <p>Soap-1pack-₹50</p>
+                    <button class="add-to-cart" onclick="addToCart({ id: 9, name: 'Soap', price: 80 , image:'./images/soap.jpeg'})">Add to Cart</button>
+                </div>
+
+                <div class="product">
+                    <img src="./images/millets.jpeg" alt="Milk" style="height: 160px; width: 170px;"><br><br>
+                    <p>Millets-1KG-₹90</p>
+                    <button class="add-to-cart" onclick="addToCart({ id: 10, name: 'Millets', price: 90 , image:'./images/millets.jpeg'})">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

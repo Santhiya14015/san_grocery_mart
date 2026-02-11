@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Showcase</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <style>
+    header {
+      background-color: #4aa96d;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a:hover
+{
+  color: black;
+}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      position: relative;
+      top: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .cart a {
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #fffcfc;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1 1 calc(20% - 20px);
+      margin: 10px;
+      min-width: 200px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #fbfbfb;
+    }
+
+    .footer-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #fefeff;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+      color: #0056b3;
+    }
+
+    .footer-section address {
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: #ffffff;
+      margin: 0 5px;
+    }
+
+    .social-icons a:hover {
+      color: #0056b3;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; 
+      margin-bottom: 20px;
+    }
+
+    .image-container {
+      flex: 0 0 50%; 
+      overflow: hidden;
+      margin-right: 20px;
+    }
+
+    .image-container img {
+      width: 120%;
+      height: 500px;
+      object-fit: cover;
+      object-position: left;
+    }
+
+    .product-details {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .product-name {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    .rating-stars {
+      display: flex;
+    }
+
+    .rating-stars i {
+      color: gold;
+      margin-right: 5px;
+    }
+
+    .price {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .delivery-time {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .quantity-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .quantity-input {
+      width: 50px;
+      text-align: center;
+      margin: 0 10px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .payment-modes,
+    .warranty,
+    .wishlist {
+      margin-top: 15px;
+      font-size: 1.2em;
+    }
+
+    .wishlist {
+      text-align: right;
+    }
+
+    .wishlist a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background-color: #eee;
+    }
+
+    .tab-content {
+      padding: 20px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .review-section {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .review {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .stars {
+      display: inline-block;
+      font-size: 24px;
+      color: #ddd;
+    }
+
+    .stars span {
+      padding: 5px;
+    }
+
+    .stars .active {
+      color: #ff9800;
+    }
+
+    .review-text {
+      margin: 10px 0;
+    }
+
+    .add-review {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+    }
+
+    .add-review input, .add-review textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+
+    .submit-button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .submit-button:hover {
+      background-color: #45a049;
+    }
+
+    .product-details .payment-modes,
+    .product-details .warranty {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .product-details .payment-modes p,
+    .product-details .warranty p {
+      margin: 5px 0;
+    }
+
+    .product-details .payment-modes {
+      margin-top: 20px;
+    }
+
+    .carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    background-color: black;
+}
+    
+  </style>
+</head>
+<body>
+
+  <header><nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" alt="" style="height: 70px; width: 70px; border-radius: 80px;"></a>
+    </div>
+  </nav>
+  <h1 style="position: relative; right: 100px; top: 5px; font-size: x-large; font-family: Arial, Helvetica, sans-serif;">San GroceryMart</h1>
+  <nav>
+      <ul>
+        <li><a href="./home.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+          <li><a href="./category.html">Categories</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+      </ul>
+  </nav>
+  <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px; border-radius: 100px;">
+    </form>
+  <div class="cart">
+      <a href="./cart.html" style="position: relative; right: 15px;"><img src="https://img.icons8.com/?size=100&id=CE7rP-35_XQR&format=png&color=000000" style="height: 30px;" alt="">  Cart(<span id="cart-count">0</span>)</a>
+      <a href="./wishlist.html"> ❤️Wishlist</a>
+  </div>
+</header>
+
+ <br>
+<div class="container">
+  <div class="image-container">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="position: relative; right: 45px;">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./images/apple.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/OIP.7X6DboKQ7esJbkZu9thUtQHaEo?w=281&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/OIP.736hk6wl8PTBLI5LX8v2nAHaEK?w=266&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+  </div>
+
+
+  <div class="product-details" >
+    <h2 class="product-name">Fresh Apples</h2>
+    <div>
+      <span class="price" style="color: red; font-size: 35px;">₹ 200.00</span>
+      <span class="price" style="color: black; position: relative; left: 35px;;"><strike>₹ 250.00</strike></span>
+    </div>
+    <div>
+      <span class="delivery-time">Free Delivery within 3-5 days</span>
+    </div>
+    <div class="quantity-container">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" class="quantity-input" min="1" value="1">
+    </div>
+    <div class="buttons">
+      <button class="button" style="background-color: #45a049;" onclick="addToCart({ id: 11, name: 'Apples', price: 200, image:'./images/apples.jpeg' })">Add to Cart</button>
+      <button class="button" style="background-color: #45a049; position: relative; left: 10px;" onclick="addToWishlist({ id: 11, name: 'Apples', price: 200, image:'./images/apples.jpeg' })">Add to wishlist</button>
+    </div><br>
+    <div class="card">
+      <div class="card-body">
+          <p style="font-size: larger;">Payment Modes: Credit Card, Cash on delivery, Net Banking, UPI</p>
+      </div>
+    </div>
+    <br>
+    <button class="button" style="background-color: #45a049; "><a href="./orderconfirm.html" style="color: black;">BuyNow</a></button><br><br>
+    <h5><a style="text-decoration: none;" href="javascript:void(0);" onclick="toggleText()">About this item...</a></h5>
+<p id="extraText" style="display: none;">
+  Apple Name: Fuji Apple <br>
+  Color: Reddish-pink with yellow-green undertones <br>
+  Weight: Each apple weighs around 200-350g <br>
+  Origin: Developed in Japan in the 1930s <br>
+  Taste & Texture: Extremely sweet, crisp, and juicy, with a honey-like flavor
+</p>
+  </div>
+</div>
+<div class="stars" id="star-rating-2" style="position: absolute; left: 1130px; bottom: 130px;">
+  <span class="active">&#9733;</span>
+  <span class="active">&#9733;</span>
+  <span class="active">&#9733;</span>
+  <span class="active">&#9733;</span>
+  <span>&#9733;</span>
+  <p style="color: black;">4.00 out of 5 ratings</p>
+</div>
+
+
+<div class="tabs">
+    <div class="tab active" id="descriptionTab">Description</div>
+    <div class="tab" id="reviewsTab">Reviews</div>
+  </div>
+
+  <div class="tab-content active" id="descriptionContent">
+    <h3>Descriptions</h3>
+    <p>
+      Quisque varius diam vel metus mattis, id aliquam diam rhoncus. Proin vitae magna in dui finibus malesuada et at nulla. Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula. Fusce fermentum iaculis nibh, at sodales leo maximus a. Nullam ultricies sodales nunc, in pellentesque lorem mattis quis. Cras imperdiet est in nunc tristique lacinia. Nullam aliquam mauris eu accumsan tincidunt. Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.
+Morbi ut sapien vitae odio accumsan gravida. Morbi vitae erat auctor, eleifend nunc a, lobortis neque. Praesent aliquam dignissim viverra. Maecenas lacus odio, feugiat eu nunc sit amet, maximus sagittis dolor. Vivamus nisi sapien, elementum sit amet eros sit amet, ultricies cursus ipsum. Sed consequat luctus ligula. Curabitur laoreet rhoncus blandit. Aenean vel diam ut arcu pharetra dignissim ut sed leo. Vivamus faucibus, ipsum in vestibulum vulputate, lorem orci convallis quam, sit amet consequat nulla felis pharetra lacus. Duis semper erat mauris, sed egestas purus commodo vel.
+    </p>
+  </div>
+
+  <div class="tab-content" id="reviewsContent">
+    <h3>Reviews</h3>
+   
+    <h1>Product Reviews – 100 Percent Apple</h1>
+
+    <p>4.00 Rated 4.00 out of 5 based on 3 customer ratings</p>
+
+    <div class="review-section">
+        <div class="review">
+            <div class="stars" id="star-rating-1">
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+            </div>
+            <p><strong>Sinan – January 10, 2024</strong></p>
+            <p class="review-text">Good Product.</p>
+        </div>
+        <div class="review">
+            <div class="stars" id="star-rating-2">
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span>&#9733;</span>
+                <span>&#9733;</span>
+            </div>
+            <p><strong>Pavithra – January 9, 2024</strong></p>
+            <p class="review-text">It is so fresh</p>
+        </div>
+        <div class="review">
+            <div class="stars" id="star-rating-3">
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span class="active">&#9733;</span>
+                <span>&#9733;</span>
+            </div>
+            <p><strong>Niha – January 14, 2024</strong></p>
+            <p class="review-text">Good for health.</p>
+        </div>
+    </div>
+
+    <div class="add-review">
+        <h3>Add a review</h3>
+        <form id="review-form">
+            <label for="rating">Your rating *</label>
+            <br>
+            <div class="stars" id="star-rating">
+                <span data-value="1">&#9733;</span>
+                <span data-value="2">&#9733;</span>
+                <span data-value="3">&#9733;</span>
+                <span data-value="4">&#9733;</span>
+                <span data-value="5">&#9733;</span>
+            </div>
+          <br>
+            <label for="review-text">Your review *</label>
+            <textarea name="review-text" id="review-text" rows="4" required></textarea>
+
+            <label for="name">Name *</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email *</label>
+            <input type="email" name="email" id="email" required>
+
+            <button type="submit" class="submit-button">Submit Review</button>
+        </form>
+    </div>
+  </div>
+
+  
+<h1 style="position: relative; left: 17px;">Related Products</h1><br><br>
+
+
+<div class="row">
+  <div class="col">
+    <div class="card h-100" style="height: 200px;"><a href="./orange.html">
+      <img src="./images/orange3.jpeg" class="card-img-top" alt="..." style="height: 300px;"></a>
+      <div class="card-body">
+        <h5 class="card-title">ORANGE</h5>
+        <p class="card-text"><b>Min 50% OFF</b></p> 
+      </div>
+    </div>
+    </div>
+  <div class="col">
+    <div class="card h-100" style="height: 200px;">
+      <img src="./images/grapes.jpeg" class="card-img-top" alt="..." style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">GRAPES</h5>
+        <p class="card-text"><b>Min 40% OFF</b></p> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="height: 200px;">
+      <img src="./images/kiwi.jpeg" class="card-img-top" alt="..." style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">KIWI</h5>
+        <p class="card-text"><b>Min 70% OFF</b></p> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="height: 200px;">
+      <img src="./images/guava.jpeg" class="card-img-top" alt="..." style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">GUAVA</h5>
+        <p class="card-text"><b>Min 60% OFF</b></p> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="height: 200px;">
+      <img src="./images/strawberry.jpeg" class="card-img-top" alt="..." style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">STRAWBERRY</h5>
+        <p class="card-text"><b>Min 30% OFF</b></p> 
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="height: 200px;">
+      <img src="./images/jackfruit.jpeg" class="card-img-top" alt="..." style="height: 300px;">
+      <div class="card-body">
+        <h5 class="card-title">JACK FRUIT</h5>
+        <p class="card-text"><b>Min 80% OFF</b></p> 
+      </div>
+    </div>
+  </div>
+  </div>
+<br>
+
+  <br>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>ABOUT</h3>
+      <ul>
+        <li><a href="./contact.html">Contact Us</a></li>
+        <li><a href="./about.html">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Our Blog</a></li>
+        <li><a href="#">Press Releases</a></li>
+        <li><a href="#">Corporate Information</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>GROUP COMPANIES</h3>
+      <ul>
+        <li><a href="#">FreshKart</a></li>
+        <li><a href="#">QuickBite</a></li>
+        <li><a href="#">ShopEase</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>HELP</h3>
+      <ul>
+        <li><a href="#">Payments</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Cancellation & Returns</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Sitemap</a></li>
+        <li><a href="#">Grievance Redressal</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>CONSUMER POLICY</h3>
+      <ul>
+        <li><a href="#">Cancellation & Returns</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Security</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>REGISTERED OFFICE</h3>
+      <address>
+        San Grocery Mart<br>
+        6/14E, Meenakshi Nagar,<br>
+        Nagercoil, TamilNadu, 629302, India<br>
+        <strong>Customer Support:</strong> 04652-7789363285<br>
+        <strong>Email:</strong> <a href="mailto:support@sangrocery.com">support@sangrocery.com</a>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 San Grocery Mart. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+updateCartCount();
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${product.name} has been added to your cart.`);
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+
+const stars = document.querySelectorAll('.stars span');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                selectedRating = this.getAttribute('data-value');
+                updateStarRating();
+            });
+        });
+
+        function updateStarRating() {
+            stars.forEach(star => {
+                if (star.getAttribute('data-value') <= selectedRating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        const form = document.getElementById('review-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (selectedRating === 0) {
+                alert('Please select a rating.');
+                return;
+            }
+            const reviewText = document.getElementById('review-text').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            alert(`Review submitted!\nRating: ${selectedRating} stars\nName: ${name}\nEmail: ${email}\nReview: ${reviewText}`);
+        });
+
+
+    const descriptionTab = document.getElementById('descriptionTab');
+    const reviewsTab = document.getElementById('reviewsTab');
+    const descriptionContent = document.getElementById('descriptionContent');
+    const reviewsContent = document.getElementById('reviewsContent');
+
+
+    descriptionTab.addEventListener('click', () => {
+      descriptionTab.classList.add('active');
+      reviewsTab.classList.remove('active');
+      descriptionContent.classList.add('active');
+      reviewsContent.classList.remove('active');
+    });
+
+    reviewsTab.addEventListener('click', () => {
+      descriptionTab.classList.remove('active');
+      reviewsTab.classList.add('active');
+      descriptionContent.classList.remove('active');
+      reviewsContent.classList.add('active');
+    });
+
+    
+updateWishlistCount();
+function addToWishlist(product) {
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.push(product);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert(`${product.name} has been added to your wishlist.`);
+      updateWishlistCount();
+    }
+
+    // Function to update wishlist count
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      document.getElementById('wishlist-count').textContent = wishlist.length;
+    }
+
+    
+function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      const existingProductIndex = cart.findIndex(item => item.id === product.id);
+  
+      if (existingProductIndex > -1) {
+          const confirmation = confirm('This item is already in the cart. Do you want to remove it?');
+          if (confirmation) {
+              cart.splice(existingProductIndex, 1);
+              localStorage.setItem('cart', JSON.stringify(cart));
+              alert(`${product.name} removed from your cart.`);
+              updateCartCount();
+          }
+      } else {
+          cart.push(product);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert(`${product.name} has been added to your cart.`);
+          updateCartCount();
+      }
+  }
+
+  function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+  }
+  window.onload = updateCartCount;
+
+  function toggleText() {
+    var extraText = document.getElementById("extraText");
+    if (extraText.style.display === "none") {
+      extraText.style.display = "block";
+    } else {
+      extraText.style.display = "none";
+    }
+  }
+ 
+</script>
+
+</body>
+</html>

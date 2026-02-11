@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grocery Shopping Card</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
+  <style>
+    * {
+  
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2,p,.price{
+    text-align: center;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.grocery-card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+p{
+    margin-bottom: 15px;
+    color:#666;
+}
+.price{
+    font-size: 20px;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+button{
+    background-color: #40bd37;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover{
+    background-color:rgb(43, 160, 28);
+}
+.btn{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+header {
+    background-color: #4aa96d;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+    top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.cart a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+footer {
+  background-color: #000000;
+  color: #fffcfc;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 calc(20% - 20px);
+  margin: 10px;
+  min-width: 200px;
+}
+
+nav a:hover
+{
+  color: black;
+}
+.footer-section h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fbfbfb;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: #fefeff;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #0056b3;
+}
+
+.footer-section address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.social-icons a:hover {
+  color: #0056b3;
+}
+.grocery-card:hover{
+    transform: scale(1.0);
+}
+  </style>
+</head>
+<body>
+  <header><nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" alt="" style="height: 70px; width: 70px; border-radius: 80px;"></a>
+      </div>
+      </nav>
+      <h1 style="position: relative; right: 100px; top: 15px; font-size: x-large; ">San GroceryMart</h1>
+      <nav>
+          <ul>
+              <li><a href="./home.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="./category.html">Categories</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+          </ul>
+      </nav>
+      <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px; border-radius: 100px;">
+        </form>
+      <div class="cart">
+          <a href="./cart.html" style="position: relative; right: 15px;"><img src="https://img.icons8.com/?size=100&id=CE7rP-35_XQR&format=png&color=000000" style="height: 30px;" alt="">  Cart(<span id="cart-count">0</span>)</a>
+          <a href="./wishlist.html"> ❤️Wishlist</a>
+      </div>
+  </header>
+
+
+<br>
+<br>
+  <div class="card-container">
+    <div class="grocery-card">
+      <img src="./images/cumin.jpg" alt="cumin" class="card-image">
+      <div class="card-content">
+        <h2>Cumin</h2>
+        <p>100g</p>
+        <div class="price">₹20</div>
+        <div class="btn">
+          <button class="add-to-cart" onclick="addToCart({ id: 21, name: 'Cumin', price: 20, image:'./images/cumin.jpg' })">Add to Cart</button>
+          <button onclick="addToWishlist({ id: 21, name: 'Cumin', price: 20, image:'./images/cumin.jpg' })">Add wishlist</button>
+    </div>
+      </div>
+    </div>
+
+    <div class="grocery-card">
+      <img src="./images/fenugreek.jpg" alt="fenugreek" class="card-image">
+      <div class="card-content">
+        <h2>Fenugreek seed</h2>
+        <p>500g</p>
+        <div class="price">₹80</div>
+        <div class="btn">
+          <button class="add-to-cart" onclick="addToCart({ id: 22, name: 'Fenugreek', price: 80, image:'./images/fenugreek.jpg' })">Add to Cart</button>
+          <button onclick="addToWishlist({ id: 22, name: 'Fenugreek', price: 80, image:'./images/fenugreek.jpg' })">Add wishlist</button>
+      </div>
+      </div>
+    </div>
+
+    <div class="grocery-card">
+      <img src="./images/cloves.jpg" alt="cloves" class="card-image">
+      <div class="card-content">
+        <h2>Cloves</h2>
+        <p>200g</p>
+        <div class="price">₹50</div>
+        <div class="btn">
+          <button class="add-to-cart" onclick="addToCart({ id: 23, name: 'Cloves', price: 50, image:'./images/cloves.jpg' })">Add to Cart</button>
+          <button onclick="addToWishlist({ id: 23, name: 'Cloves', price: 50, image:'./images/cloves.jpg' })">Add wishlist</button>
+      </div>
+      </div>
+    </div>
+
+    <div class="grocery-card">
+      <img src="./images/pepper.jpg" alt="black pepper" class="card-image">
+      <div class="card-content">
+        <h2>Black pepper</h2>
+        <p>200g</p>
+        <div class="price">₹150</div>
+        <div class="btn">
+          <button class="add-to-cart" onclick="addToCart({ id: 24, name: 'Pepper', price: 150, image:'./images/pepper.jpg' })">Add to Cart</button>
+          <button onclick="addToWishlist({ id: 24, name: 'Pepper', price: 150, image:'./images/pepper.jpg' })">Add wishlist</button>
+      </div></div>
+    </div>
+
+    <div class="grocery-card">
+        <img src="./images/cardamom.jpg" alt="Cardamom" class="card-image">
+        <div class="card-content">
+          <h2>Cardamom</h2>
+          <p>50g</p>
+          <div class="price">₹20</div>
+          <div class="btn">
+            <button class="add-to-cart" onclick="addToCart({ id: 25, name: 'Cardamom', price: 20, image:'./images/cardamom.jpg' })">Add to Cart</button>
+            <button onclick="addToWishlist({ id: 25, name: 'Cardamom', price: 20, image:'./images/cardamom.jpg' })">Add wishlist</button>
+        </div>
+        </div>
+      </div>
+  
+      <div class="grocery-card">
+        <img src="./images/mustard.jpg" alt="Mustard" class="card-image">
+        <div class="card-content">
+          <h2>Mustard</h2>
+          <p>200g</p>
+          <div class="price">₹15</div>
+          <div class="btn">
+            <button class="add-to-cart" onclick="addToCart({ id: 26, name: 'Mustard', price: 15, image:'./images/mustard.jpg' })">Add to Cart</button>
+            <button onclick="addToWishlist({ id: 26, name: 'Mustard', price: 15, image:'./images/mustard.jpg' })">Add wishlist</button>
+        </div>
+        </div>
+      </div>
+  
+      <div class="grocery-card">
+        <img src="./images/cashew.jpg" alt="cashew nut" class="card-image">
+        <div class="card-content">
+          <h2>Cashew nut</h2>
+          <p>500g</p>
+          <div class="price">₹310</div>
+          <div class="btn">
+            <button class="add-to-cart" onclick="addToCart({ id: 27, name: 'Cashews', price: 310, image:'./images/cashew.jpg' })">Add to Cart</button>
+            <button onclick="addToWishlist({ id: 27, name: 'Cashews', price: 310, image:'./images/cashew.jpg' })">Add wishlist</button>
+        </div>
+        </div>
+      </div>
+  
+      <div class="grocery-card">
+        <img src="./images/fennel.jpg" alt="Fennel" class="card-image">
+        <div class="card-content">
+          <h2>Fennel seed</h2>
+          <p>100g</p>
+          <div class="price">₹25</div>
+          <div class="btn">
+            <button class="add-to-cart" onclick="addToCart({ id: 28, name: 'Fennel', price: 25, image:'./images/fennel.jpg' })">Add to Cart</button>
+            <button onclick="addToWishlist({ id: 28, name: 'Fennel', price: 25, image:'./images/fennel.jpg' })">Add wishlist</button>
+        </div>
+        </div>
+      </div>
+
+      <div class="grocery-card">
+        <img src="./images/coriander seed.jpg" alt="coriander seed" class="card-image">
+        <div class="card-content">
+          <h2>Coriander seed</h2>
+          <p>500g</p>
+          <div class="price">₹90</div>
+          <div class="btn">
+            <button class="add-to-cart" onclick="addToCart({ id: 29, name: 'Coriander seed', price: 90, image:'./images/coriander seed.jpg' })">Add to Cart</button>
+            <button onclick="addToWishlist({ id: 29, name: 'Coriander seed', price: 90, image:'./images/coriander seed.jpg' })">Add wishlist</button>
+        </div>
+        </div>
+      </div>
+
+  <div class="grocery-card">
+    <img src="./images/nutmeg.jpg" alt="nutmeg" class="card-image">
+    <div class="card-content">
+      <h2>Nutmeg</h2>
+      <p>200g</p>
+      <div class="price">₹210</div>
+      <div class="btn">
+        <button class="add-to-cart" onclick="addToCart({ id: 30, name: 'Nutmeg', price: 210, image:'./images/nutmeg.jpg' })">Add to Cart</button>
+        <button onclick="addToWishlist({ id: 30, name: 'Nutmeg', price: 210, image:'./images/nutmeg.jpg' })">Add wishlist</button>
+    </div>
+    </div>
+  </div>
+
+  <div class="grocery-card">
+    <img src="./images/turmeric.jpg" alt="Turmeric" class="card-image">
+    <div class="card-content">
+      <h2>Turmeric</h2>
+      <p>500g</p>
+      <div class="price">₹150</div>
+      <div class="btn">
+        <button class="add-to-cart" onclick="addToCart({ id: 31, name: 'Turmeric', price: 150, image:'./images/turmeric.jpg' })">Add to Cart</button>
+        <button onclick="addToWishlist({ id: 31, name: 'Turmeric', price: 150, image:'./images/turmeric.jpg' })">Add wishlist</button>
+    </div>
+    </div>
+  </div>
+
+  <div class="grocery-card">
+    <img src="./images/tamarind.jpg" alt="Tamarind" class="card-image">
+    <div class="card-content">
+      <h2>Tamarind</h2>
+      <p>500g</p>
+      <div class="price">₹150</div>
+      <div class="btn">
+        <button class="add-to-cart" onclick="addToCart({ id: 32, name: 'Tamarind', price: 150, image:'./images/tamarind.jpg' })">Add to Cart</button>
+        <button onclick="addToWishlist({ id: 32, name: 'Tamarind', price: 150, image:'./images/tamarind.jpg' })">Add wishlist</button>
+    </div>
+    </div>
+  </div>
+  </div>
+  <br>
+  <br>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>ABOUT</h3>
+        <ul>
+          <li><a href="./contact.html">Contact Us</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Our Blog</a></li>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">Corporate Information</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>GROUP COMPANIES</h3>
+        <ul>
+          <li><a href="#">FreshKart</a></li>
+          <li><a href="#">QuickBite</a></li>
+          <li><a href="#">ShopEase</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>HELP</h3>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Cancellation & Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Grievance Redressal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>CONSUMER POLICY</h3>
+        <ul>
+          <li><a href="#">Cancellation & Returns</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>REGISTERED OFFICE</h3>
+        <address>
+          San Grocery Mart<br>
+          6/14E,Meeenakshi Nagar,<br>
+          Nagercoil, TamilNadu, 629302, India<br>
+          <strong>Customer Support:</strong> 04652-7789363285<br>
+          <strong>Email:</strong> <a href="mailto:support@sangrocery.com">support@sangrocery.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 San Grocery Mart. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+     updateCartCount();
+
+// Function to add a product to the cart
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(`${product.name} has been added to your cart.`);
+  updateCartCount();
+}
+
+// Function to update cart count
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cart-count').textContent = cart.length;
+}
+
+updateWishlistCount();
+function addToWishlist(product) {
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.push(product);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert(`${product.name} has been added to your wishlist.`);
+      updateWishlistCount();
+    }
+
+    // Function to update wishlist count
+    function updateWishlistCount() {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      document.getElementById('wishlist-count').textContent = wishlist.length;
+    }
+   
+function addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+      const existingProductIndex = cart.findIndex(item => item.id === product.id);
+  
+      if (existingProductIndex > -1) {
+          const confirmation = confirm('This item is already in the cart. Do you want to remove it?');
+          if (confirmation) {
+              cart.splice(existingProductIndex, 1);
+              localStorage.setItem('cart', JSON.stringify(cart));
+              alert(`${product.name} removed from your cart.`);
+              updateCartCount();
+          }
+      } else {
+          cart.push(product);
+          localStorage.setItem('cart', JSON.stringify(cart));
+          alert(`${product.name} has been added to your cart.`);
+          updateCartCount();
+      }
+  }
+
+  function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cart-count').textContent = cart.length;
+  }
+  window.onload = updateCartCount;
+ 
+  </script>
+</body>
+</html>

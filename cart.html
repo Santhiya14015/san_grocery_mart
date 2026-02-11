@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+    }
+    header {
+        background-color: #4aa96d;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        position: relative;
+        top: 10px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+    }
+    nav a:hover {
+      color: black;
+    }
+    .cart a {
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+    }
+    footer {
+      background-color: #000000;
+      color: #fffcfc;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .footer-section {
+      flex: 1 1 calc(20% - 20px);
+      margin: 10px;
+      min-width: 200px;
+    }
+
+    .footer-section h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #fbfbfb;
+    }
+
+    .footer-section ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section ul li a {
+      text-decoration: none;
+      color: #fefeff;
+      transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+      color: #0056b3;
+    }
+
+    .footer-section address {
+      font-style: normal;
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+      font-size: 14px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      color: #ffffff;
+      margin: 0 5px;
+    }
+
+    .social-icons a:hover {
+      color: #0056b3;
+    }
+
+    .cart-item {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      display: inline-block;
+      width: 200px;
+    }
+
+    .cart-item button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cart-item button:hover {
+      background-color: #c82333;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./images/logo.jpeg" alt="" style="height: 70px; width: 70px; border-radius: 80px;"></a>
+            </div>
+        </nav>
+        <h1 style="position: relative; right: 100px;top: 5px; font-size: x-large; font-family: Arial, Helvetica, sans-serif;">San GroceryMart</h1>
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./category.html">Categories</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width: 300px; border-radius: 100px;">
+        </form>
+        <div class="cart">
+            <a href="./cart.html" style="position: relative; right: 15px;">
+                <img src="https://img.icons8.com/?size=100&id=CE7rP-35_XQR&format=png&color=000000" style="height: 30px;" alt=""> Cart(<span id="cart-count">0</span>)
+            </a>
+            <a href="./wishlist.html"> ❤️Wishlist</a>
+        </div>
+    </header>
+
+    <br>
+    <h1>Your Cart</h1>
+    <div id="cart-container"></div>
+    <button id="buy-now-btn" style="padding: 10px; border-radius: 10px; background-color: #78ce97; position: relative; left: 700px; display: none;">
+      <a style="color: black;" href="./cartorder.html">Buy all</a>
+    </button>
+    <br><br>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>ABOUT</h3>
+                <ul>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="./about.html">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Our Blog</a></li>
+                    <li><a href="#">Press Releases</a></li>
+                    <li><a href="#">Corporate Information</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>GROUP COMPANIES</h3>
+                <ul>
+                    <li><a href="#">FreshKart</a></li>
+                    <li><a href="#">QuickBite</a></li>
+                    <li><a href="#">ShopEase</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>HELP</h3>
+                <ul>
+                    <li><a href="#">Payments</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Cancellation & Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Grievance Redressal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONSUMER POLICY</h3>
+                <ul>
+                    <li><a href="#">Cancellation & Returns</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>REGISTERED OFFICE</h3>
+                <address>
+                    San Grocery Mart<br>
+                    6/14E,Meeenakshi Nagar,<br>
+                    Nagercoil, TamilNadu, 629302, India<br>
+                    <strong>Customer Support:</strong> 04652-7789363285<br>
+                    <strong>Email:</strong> <a href="mailto:support@sangrocery.com">support@sangrocery.com</a>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 San Grocery Mart. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function displayCartItems() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cart-container');
+            const buyNowBtn = document.getElementById('buy-now-btn'); // Get the Buy Now button element
+            
+            cartContainer.innerHTML = ''; // Clear existing items
+            
+            // If cart is empty
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                buyNowBtn.style.display = 'none';  // Hide the Buy Now button if cart is empty
+            } else {
+                cart.forEach((item) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px;">
+                        <h2>${item.name}</h2>
+                        <p>Price: ₹${item.price}</p>
+                        <button onclick="removeFromCart(${item.id})" style="background-color: #dc3545; color: white; border: none; padding: 10px; cursor: pointer;">Remove</button>
+                    `;
+                    cartContainer.appendChild(cartItem);
+                });
+                buyNowBtn.style.display = 'block';  // Show the Buy Now button if cart has items
+            }
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        function removeFromCart(productId) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== productId); // Remove the item with the matching ID
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            displayCartItems(); // Re-render the cart
+            updateCartCount(); // Update the cart count in the header
+        }
+
+        window.onload = function() {
+            displayCartItems();
+            updateCartCount();
+        };
+    </script>
+</body>
+</html>
